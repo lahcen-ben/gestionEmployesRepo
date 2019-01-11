@@ -1,0 +1,28 @@
+<div class="panel panel-primary" style="margin: 20px 20px">
+  <div class="panel-heading">Affichage des données</div>
+  <div class="panel-body">
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="list()">Load Data</button>
+      &nbsp;
+      <label class="control-label">Mot Clé : </label>
+      <input type="text" class="control-label" [(ngModel)]="motCle">
+      &nbsp;
+      <button class="btn btn-primary" (click)="filterByNom(motCle)">Filter Data</button>
+    </div>
+    <div style="margin-top: 5px"></div>
+    <table>
+      <tr *ngIf="employes">
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Profession</th>
+      </tr>
+      <tr *ngFor="let e of employes | async">
+        <td>{{e.id}}</td>
+        <td>{{e.nom}}</td>
+        <td>{{e.prenom}}</td>
+        <td>{{e.profession}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
